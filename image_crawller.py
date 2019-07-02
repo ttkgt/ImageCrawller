@@ -6,16 +6,17 @@ import urllib
 import requests
 class ImageCrawller:
     def __init__(self, save_dirpath, start_page, maximum_download):
+
         self.save_dirpath = save_dirpath
         self.crawl_url_list = [start_page]
         self.stocked_url = set()
-        self.maximum_dowmload = maximum_download
+        self.maximum_download = maximum_download
         self.download_counter = 0
 
     def run(self):
         while True:
             # 処理１：探索するURLが無ければ終了。規定数以上を集めていても終了
-            if len(self.craw_url_list) == 0:
+            if len(self.crawl_url_list) == 0:
                 break
             if self.download_counter >= self.maximum_download:
                 break
@@ -107,11 +108,11 @@ class ImageCrawller:
             except Exception as e:
                 print('Error: {}'.format(e))
 
-    if __name__ == '__main__':
-        save_dirpath = 'test'
-        start_page = 'https://gihyo.jp/book/list'
-        maximum_download = 10
-        crawller = ImageCrawller(save_dirpath, start_page, maximum_download)
-        crawller.run()
+if __name__ == '__main__':
+    save_dirpath = 'test'
+    start_page = 'https://gihyo.jp/book/list'
+    maximum_download = 10
+    crawller = ImageCrawller(save_dirpath, start_page, maximum_download)
+    crawller.run()
 
 
