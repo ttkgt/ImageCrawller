@@ -87,7 +87,7 @@ class ImageCrawller:
         for image_url in image_url_list:
             try:
                 # 決められた回数以上のダウンロードをした場合は終了
-                if self.download.counter >= self.maximum_download:
+                if self.download_counter >= self.maximum_download:
                     return
 
                 # イメージを取得
